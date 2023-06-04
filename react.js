@@ -18,9 +18,6 @@ class ComponentRadio extends React.Component {
 
         this.state = {value: ''};
         this.items = props.items;
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange = ({ target }) => {
@@ -28,7 +25,7 @@ class ComponentRadio extends React.Component {
     }
 
     handleSubmit = (event) => {
-        alert(`Выбранное значение: ${ RADIO_ITEMS_TO_TEXT[this.state.value] }`);
+        alert(`Выбранное значение: ${ RADIO_ITEMS_TO_TEXT[this.state.value] ?? '' }`);
         event.preventDefault();
     }
 
@@ -87,9 +84,6 @@ class ComponentCheckBox extends React.Component {
 
         this.state = {value: []};
         this.items = props.items;
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange = ({ target }) => {
@@ -146,12 +140,9 @@ class ManageReference extends React.Component {
 
         this.state = { name: '', email: '', phone: ''};
         this.items = props.items;
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(event){
+    handleSubmit = (event) => {
         alert(`Вы ввели: ${[this.state.name, this.state.email, this.state.phone].filter(Boolean).join(', ')}`);
         event.preventDefault();
     }
